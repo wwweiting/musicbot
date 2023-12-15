@@ -1,0 +1,7 @@
+gunicorn
+line-bot-sdk
+flask
+pygsheets
+xlsxwriter
+pandas
+dotenv
