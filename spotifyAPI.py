@@ -71,7 +71,7 @@ def get_top_songs(token, song_id):
 
 
 # 設定憑證文件路徑
-credentials_path = '/Users/wei/Desktop/Dlab/linebot/musicbot/google.json'
+credentials_path = 'google.json'
 # 設定憑證範圍
 scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
 # 載入憑證
@@ -85,7 +85,7 @@ worksheet = gc.open(sheet_name).sheet1
 
 
 token = get_token()
-result = search_for_artist(token, "無妄合作社")
+result = search_for_artist(token, '') # ''中間放創作者的名稱
 artist_id = result["id"]
 artist_name = result["name"]
 songs = get_songs_by_artist(token, artist_id)
