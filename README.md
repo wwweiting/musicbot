@@ -19,6 +19,8 @@
 
 ### music.py
 歌曲介紹功能的flex message
+<div align=center><img height="300" src="https://github.com/wwweiting/musicbot/blob/main/IMG_7332.jpg"/></div>
+<p align=center隨機推薦歌曲範例</p>
 
 ### spotifyAPI.py
 連接Spotify API搜集歌曲資訊
