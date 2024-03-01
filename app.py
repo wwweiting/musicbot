@@ -68,12 +68,12 @@ def handle_message(event):
         pass
 
 
-# 替換 'path/to/your/credentials.json' 為你的憑證 JSON 檔案的路徑
-credentials_path = '/Users/wei/Desktop/Dlab/linebot/musicbot/google.json'
+# JSON 檔案的路徑
+credentials_path = 'google.json'
 gc = pygsheets.authorize(service_file=credentials_path)
 
-# 開啟你的 Google Sheets，替換 'Your Spreadsheet Name' 為你的表單名稱
-sh = gc.open_by_url('https://docs.google.com/spreadsheets/d/1nh8DbHECrMCPBa1rTnouW9QCSE91tq6saEjhbWr_K-Y/edit#gid=0')
+# 開啟你的 Google Sheets（''中間放 Google Sheets 連結）
+sh = gc.open_by_url('')
 worksheet = sh.sheet1
 
 # 在 Postback Event 中插入數據
