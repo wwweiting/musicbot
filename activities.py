@@ -3,14 +3,14 @@ from oauth2client.service_account import ServiceAccountCredentials
 from linebot.models import *
 
 # 設定憑證文件路徑
-credentials_path = '/Users/wei/Desktop/Dlab/linebot/musicbot/google.json'
+credentials_path = 'google.json'
 # 設定憑證範圍
 scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
 # 載入憑證
 credentials = ServiceAccountCredentials.from_json_keyfile_name(credentials_path, scope)
 gc = pygsheets.authorize(service_file=credentials_path)
 
-# 設定要讀取的 Google Sheets 名稱
+# 設定要讀取的 Google Sheets
 sheet_name = 'activities'
 # 開啟 Google Sheets
 worksheet = gc.open(sheet_name).sheet1
