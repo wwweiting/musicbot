@@ -10,22 +10,8 @@
 ### activities.py
 音樂祭活動的flex message，以及時間、地點的篩選
 <div align=center><img height="300" src="https://github.com/wwweiting/musicbot/blob/main/IMG_7334.jpg"/></div>
-活動資訊篩選結果範例
-<body>
-    <div class="activity">
-        <div class="activity-bg">
-            <div align=center><img height="300" src="https://github.com/wwweiting/musicbot/blob/main/IMG_7334.jpg"/></div>
-        </div>
-        <div class="activity-text">
-            <p>活動資訊篩選結果範例</p>
-        </div>
-    </div>
-</body>
+<p align=center>活動資訊篩選結果範例</p>
 
-作者：南山行者
-链接：https://www.zhihu.com/question/388703154/answer/1560421794
-来源：知乎
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 ### music.py
 歌曲介紹功能的flex message
