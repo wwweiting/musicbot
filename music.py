@@ -4,18 +4,18 @@ from linebot.models import *
 import random
 
 # 設定憑證文件路徑
-credentials_path = '/Users/wei/Desktop/Dlab/linebot/musicbot/google.json'
+credentials_path = 'google.json'
 # 設定憑證範圍
 scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
 # 載入憑證
 credentials = ServiceAccountCredentials.from_json_keyfile_name(credentials_path, scope)
 gc = pygsheets.authorize(service_file=credentials_path)
 
-shMusic = gc.open_by_url('https://docs.google.com/spreadsheets/d/1VA4In_Z_7MV4nI_ckfGaHaZXpvFaSlvrjaE2hXdrlQ8/edit#gid=0')
+shMusic = gc.open_by_url('') # ''中間放 Google Sheets 連結
 worksheetMusic = shMusic.sheet1
 dfMusic = worksheetMusic.get_as_df()
 
-shBand = gc.open_by_url('https://docs.google.com/spreadsheets/d/1VdCB8LcC4ul0bpguaGPT5OBPd0SaHnMrJQWidBApuMg/edit#gid=0')
+shBand = gc.open_by_url('') # ''中間放 Google Sheets 連結
 worksheetBand = shBand.sheet1
 dfBand = worksheetBand.get_as_df()
     
