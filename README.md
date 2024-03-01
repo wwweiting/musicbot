@@ -8,6 +8,8 @@
 整個LINE Bot的主程式
 ### activities.py
 音樂祭活動的flex message，以及時間、地點的篩選
+![image](https://github.com/wwweiting/musicbot/blob/main/IMG_7334.jpg)
+活動資訊篩選結果範例
 ### music.py
 歌曲介紹功能的flex message
 ### spotifyAPI.py
