@@ -2,24 +2,19 @@ import pygsheets
 from oauth2client.service_account import ServiceAccountCredentials
 from linebot.models import *
 
-# 設定憑證文件路徑
+
 credentials_path = 'google.json'
-# 設定憑證範圍
 scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
-# 載入憑證
 credentials = ServiceAccountCredentials.from_json_keyfile_name(credentials_path, scope)
 gc = pygsheets.authorize(service_file=credentials_path)
 
-# 設定要讀取的 Google Sheets
+
 sheet_name = 'activities'
-# 開啟 Google Sheets
 worksheet = gc.open(sheet_name).sheet1
-# 將 Google Sheets 資料讀取到 Pandas DataFrame
 df = worksheet.get_as_df()
 
 
-# 類別,值
-# 月份,地區 - 要有預設值
+
 def FlexTemplateRegion(region = ''): 
     message = {
         "type" : "carousel",
@@ -28,10 +23,10 @@ def FlexTemplateRegion(region = ''):
 
     if region != '':
          df1 = df[df['region'] == region].reset_index(drop = True)
-         # df[df['region'] == region].reset_index(drop = True, inplace = True) #會更改到原本的df
+         # df[df['region'] == region].reset_index(drop = True, inplace = True) 
 
     for a in range(len(df1)):
-        # if df['region'][a] == region:  # 檢查地區條件
+        # if df['region'][a] == region:  
             review = {
             "type": "bubble",
       "size": "kilo",
@@ -123,13 +118,13 @@ def FlexTemplateRegion(region = ''):
       }}
             message["contents"].append(review)
 
-    if message["contents"]:  # 檢查是否有符合條件的 Bubble
+    if message["contents"]: 
         msg = FlexSendMessage(
             alt_text="相關活動",
             contents=message)
         return msg
     else:
-        return None  # 如果沒有符合條件的 Bubble，可以回傳 None 或其他適當的值
+        return None 
     
 
 def buttons_message1():
@@ -276,7 +271,7 @@ def FlexTemplateDate(start_date, end_date):
       }}
             message["contents"].append(review)
 
-    if message["contents"]:  # 檢查是否有符合條件的 Bubble
+    if message["contents"]: 
         msg = FlexSendMessage(
             alt_text="相關活動",
             contents=message)
