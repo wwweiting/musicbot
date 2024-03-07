@@ -3,19 +3,17 @@ from oauth2client.service_account import ServiceAccountCredentials
 from linebot.models import *
 import random
 
-# 設定憑證文件路徑
+
 credentials_path = 'google.json'
-# 設定憑證範圍
 scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
-# 載入憑證
 credentials = ServiceAccountCredentials.from_json_keyfile_name(credentials_path, scope)
 gc = pygsheets.authorize(service_file=credentials_path)
 
-shMusic = gc.open_by_url('') # ''中間放 Google Sheets 連結
+shMusic = gc.open_by_url('')
 worksheetMusic = shMusic.sheet1
 dfMusic = worksheetMusic.get_as_df()
 
-shBand = gc.open_by_url('') # ''中間放 Google Sheets 連結
+shBand = gc.open_by_url('')
 worksheetBand = shBand.sheet1
 dfBand = worksheetBand.get_as_df()
     
