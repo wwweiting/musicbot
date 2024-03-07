@@ -62,30 +62,19 @@ def get_top_songs(token, song_id):
     return json_result
 
 
-# def genre(token):
-#     url = f"https://api.spotify.com/v1/recommendations/available-genre-seeds?country=TW"
-#     headers = get_auth_header(token)
-#     result = get(url, headers = headers)
-#     json_result = json.loads(result.content)
-#     return json_result
 
-
-# 設定憑證文件路徑
 credentials_path = 'google.json'
-# 設定憑證範圍
 scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
-# 載入憑證
 credentials = ServiceAccountCredentials.from_json_keyfile_name(credentials_path, scope)
 gc = pygsheets.authorize(service_file=credentials_path)
 
-# 設定要讀取的 Google Sheets 名稱
+
 sheet_name = 'music'
-# 開啟 Google Sheets
 worksheet = gc.open(sheet_name).sheet1
 
 
 token = get_token()
-result = search_for_artist(token, '') # ''中間放創作者的名稱
+result = search_for_artist(token, '') 
 artist_id = result["id"]
 artist_name = result["name"]
 songs = get_songs_by_artist(token, artist_id)
@@ -100,5 +89,4 @@ for idx, song in enumerate(songs):
     data.append({'music': song['name'], 'artist': artist_name, 'ID': song_id, 'link': link})
 
 df = pd.DataFrame(data)
-# worksheet.set_dataframe(df, start='A1', nan='')
 worksheet.append_table(df.values.tolist(), start='A1', end=None, dimension='ROWS', overwrite=False)
